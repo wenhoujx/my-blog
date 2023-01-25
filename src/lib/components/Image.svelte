@@ -1,13 +1,9 @@
 <script>
-    export let imageSrc;
+    export let src;
     export let figcaption = null;
+    export let alt;
 </script>
 
-<picture>
-    <img src={imageSrc} {alt} loading="lazy" decoding="async" />
-
-    {#if figcaption}
-        <!-- svelte-ignore a11y-structure -->
-        <figcaption>{@html figcaption}</figcaption>
-    {/if}
-</picture>
+<div style="text-align: center; margin-bottom: var(--spacing);">
+    <img {src} {alt} loading="lazy" decoding="async" style="width: 15rem;" />
+</div>
