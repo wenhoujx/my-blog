@@ -17,15 +17,16 @@
 <div class="grid">
     {#each filterPosts(filterValue, posts) as post (post.id)}
         <article>
-            <a href={"/post/" + post.id}>
-                {post.title}
-            </a>
-
-            <footer>
-                <small>
+            <hgroup>
+                <h4>
+                    <a href={"/post/" + post.id}>
+                        {post.title}
+                    </a>
+                </h4>
+                <h5>
                     {post.tags?.join(", ")}
-                </small>
-            </footer>
+                </h5>
+            </hgroup>
         </article>
     {/each}
 </div>
@@ -33,7 +34,7 @@
 <style>
     .grid {
         display: grid;
-        gap: 1px;
+        gap: var(--spacing);
         grid-template-columns: repeat(3, 1fr);
     }
 </style>
