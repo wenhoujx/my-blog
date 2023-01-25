@@ -6,39 +6,65 @@ export const _log = (s) => {
     true && console.log(s);
 }
 
-export const getPosts = () => {
-    // Import the markdown files for each post
-    const imports = import.meta.glob("$lib/posts/*.md", { eager: true });
-    const posts = [];
-    
-    for (const path in imports) {
-        const post = imports[path];
-        if (post) {
-            _log(_stringify(post));
-            // For each of them, MDsveX will do the heavy lifting. The "metadata"
-            // is automatically recovered from the Frontmatter, and we're also
-            // asking it to render the blog post so we're able to use it
-            // as a component later on.
-            posts.push({
-                ...post.metadata,
-                ...post.default.render(),
-            });
+
+export const slugFromPath = (path) => { return path.match(/([\w-]+)\.md/i)?.[1] ?? null; }
+
+export const onePost = async (postId) => {
+    const modules = import.meta.glob(`$lib/posts/*.md`);
+    let match = {};
+    for (const [path, resolver] of Object.entries(modules)) {
+        if (slugFromPath(path) === postId) {
+            match = { path, resolver };
+            break;
         }
     }
 
-    // Filter the post and order them by published date
-    const filteredPosts = posts
-        .filter((post) => !post.hidden)
-        .sort((a, b) =>
-            new Date(a.date).getTime() > new Date(b.date).getTime()
-                ? -1
-                : new Date(a.date).getTime() < new Date(b.date).getTime()
-                    ? 1
-                    : 0
-        );
-    return filteredPosts;
+    const post = await match?.resolver?.();
+
+    if (!post || !post.metadata.published) {
+        throw error(404); // Couldn't resolve the post
+    }
+
+    return {
+        component: post.default,
+        frontmatter: post.metadata
+    };
+}
+export const allPosts = async () => {
+    const modules = import.meta.glob(`$lib/posts/*.md`);
+
+    const postPromises = Object.entries(modules).map(([path, resolver]) =>
+        resolver().then(
+            (post) =>
+            ({
+                id: slugFromPath(path),
+                ...post.metadata
+            })
+        )
+    );
+
+    const posts = await Promise.all(postPromises);
+    _log(_stringify(posts))
+    const publishedPosts = posts.filter(post => post.published).sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
+
+    return { posts: publishedPosts };
 }
 
-
-export const slugFromPath = (path) =>
-	path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
+export const filterPosts = (filterValue, posts) => {
+    return posts.filter((p) => {
+        if (!filterValue || filterValue === "") {
+            return true;
+        }
+        if (_.includes(p.title.toLowerCase(), filterValue.toLowerCase())) {
+            return true;
+        } else if (
+            _.some(p.tags, (t) =>
+                _.includes(t.toLowerCase(), filterValue.toLowerCase())
+            )
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+}

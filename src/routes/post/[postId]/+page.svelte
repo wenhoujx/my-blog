@@ -5,5 +5,4 @@
     const frontmatter = data.frontmatter;
 </script>
 
-{_stringify(frontmatter)}
 <svelte:component this={component} />
