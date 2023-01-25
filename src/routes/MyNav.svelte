@@ -2,14 +2,12 @@
     <ul>
         <li>
             <a href="/">
-                <img src="/goji.png" alt="goji-pic" style="width:2rem" />
-                <h5 style="display: inline;">GojiBlog</h5>
+                <img src="/goji.png" alt="goji blog" style="width:2rem" />
+                <h5 style="display: inline; color: #ff8087">GojiBlog</h5>
             </a>
         </li>
-    </ul>
-    <ul>
         <li>
-            <a href="/post">Posts</a>
+            <a href="/post">帖子</a>
         </li>
     </ul>
 </nav>
