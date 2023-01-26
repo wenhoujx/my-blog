@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export const _stringify = (o) => {
     return JSON.stringify(o);
 }
@@ -44,7 +46,7 @@ export const allPosts = async () => {
     );
 
     const posts = await Promise.all(postPromises);
-    _log(_stringify(posts))
+    // _log(_stringify(posts))
     const publishedPosts = posts.filter(post => post.published).sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
 
     return { posts: publishedPosts };

@@ -17,7 +17,7 @@
 
 <div class="grid">
     {#each filterPosts(filterValue, posts) as post (post.id)}
-        <BoopAction boopParams="{{scale: 1.2, timing: 200}}">
+        <BoopAction boopParams={{ scale: 1.1, timing: 200 }}>
             <article>
                 <hgroup>
                     <h4>
