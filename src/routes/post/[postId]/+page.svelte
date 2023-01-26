@@ -5,4 +5,6 @@
     const frontmatter = data.frontmatter;
 </script>
 
-<svelte:component this={component} />
+<article>
+    <svelte:component this={component} />
+</article>

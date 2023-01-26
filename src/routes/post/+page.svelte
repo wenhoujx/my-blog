@@ -20,14 +20,14 @@
         <BoopAction boopParams={{ scale: 1.1, timing: 200 }}>
             <article>
                 <hgroup>
-                    <h4>
+                    <h1>
                         <a href={"/post/" + post.id}>
                             {post.title}
                         </a>
-                    </h4>
-                    <h5>
+                    </h1>
+                    <h2>
                         {post.tags?.join(", ")}
-                    </h5>
+                    </h2>
                 </hgroup>
             </article>
         </BoopAction>
