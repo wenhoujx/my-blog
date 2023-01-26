@@ -7,6 +7,10 @@
     $: filteredPosts = filterPosts(filterValue, posts);
 </script>
 
+<div style="text-align: center;">
+    <h3>All Posts</h3>
+</div>
+
 <input
     style="border-radius: 0%;"
     type="search"

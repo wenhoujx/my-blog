@@ -7,13 +7,8 @@
             </a>
         </li>
         <li>
-            <a href="/post">帖子</a>
+            <a href="/post">帖子
+            </a>
         </li>
     </ul>
 </nav>
-
-<style>
-    li:hover {
-        background-color: var(--secondary-hover);
-    }
-</style>
