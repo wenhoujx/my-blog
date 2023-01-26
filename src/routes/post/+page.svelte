@@ -1,6 +1,7 @@
 <script>
     import { _stringify } from "$lib/utils";
     import _ from "lodash";
+    import Boop from "$lib/components/Boop.svelte";
     import { filterPosts } from "../../lib/utils";
 
     export let data;
@@ -16,18 +17,20 @@
 
 <div class="grid">
     {#each filterPosts(filterValue, posts) as post (post.id)}
-        <article>
-            <hgroup>
-                <h4>
-                    <a href={"/post/" + post.id}>
-                        {post.title}
-                    </a>
-                </h4>
-                <h5>
-                    {post.tags?.join(", ")}
-                </h5>
-            </hgroup>
-        </article>
+        <Boop>
+            <article>
+                <hgroup>
+                    <h4>
+                        <a href={"/post/" + post.id}>
+                            {post.title}
+                        </a>
+                    </h4>
+                    <h5>
+                        {post.tags?.join(", ")}
+                    </h5>
+                </hgroup>
+            </article>
+        </Boop>
     {/each}
 </div>
 
