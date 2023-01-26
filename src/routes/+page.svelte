@@ -23,11 +23,13 @@
                 <a href="mailto:onepicodev@gmail.com">onepicodev@gmail.com</a>
             </h3>
         </hgroup>
-        这是我写的一个网站: 帮助海外华人找到附近共同爱好的朋友: <a
-            href="https://www.gojichat.com/"
-        >
-            gojichat.com
-        </a>
+        <p>
+            这是我写的一个网站: 帮助海外华人找到附近共同爱好的朋友: <a
+                href="https://www.gojichat.com/"
+            >
+                gojichat.com
+            </a>
+        </p>
     </article>
 </section>
 
