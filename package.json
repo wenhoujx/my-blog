@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/analytics": "^0.1.8",
 		"lodash": "^4.17.21"
 	}
 }
