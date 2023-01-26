@@ -1,8 +1,8 @@
 <script>
     import { _stringify } from "$lib/utils";
     import _ from "lodash";
-    import Boop from "$lib/components/Boop.svelte";
     import { filterPosts } from "../../lib/utils";
+    import BoopAction from "../../lib/components/BoopAction.svelte";
 
     export let data;
     const posts = data.posts;
@@ -17,7 +17,7 @@
 
 <div class="grid">
     {#each filterPosts(filterValue, posts) as post (post.id)}
-        <Boop>
+        <BoopAction boopParams="{{scale: 1.2, timing: 200}}">
             <article>
                 <hgroup>
                     <h4>
@@ -30,7 +30,7 @@
                     </h5>
                 </hgroup>
             </article>
-        </Boop>
+        </BoopAction>
     {/each}
 </div>
 
