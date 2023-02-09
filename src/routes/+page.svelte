@@ -7,11 +7,10 @@
 
 <div class="grid">
     <article>
-        <Home />
-    </article>
-
-    <article>
         <SideBar posts={data.posts} />
+    </article>
+    <article>
+        <Home />
     </article>
 </div>
 

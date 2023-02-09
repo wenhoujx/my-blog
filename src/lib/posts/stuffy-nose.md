@@ -21,3 +21,8 @@ published: true
 这个东西的道理也非常简单. 就是物理的撑开你的鼻腔, 也不会有什么不舒适感, 毕竟任何不适和鼻子不通比起来都是小巫啦.
 
 在我写这篇的时候, 发现了这个<a href="https://www.breatheright.com/samples-sign-up/">小样链接</a>, 注册之后能拿到免费的小样来尝试一下, 还有$2coupon哦.
+
+## 更新
+之前申请的小样 已经到啦, 虽然只有两片, 但是还是能使用一下看下效果.
+
+<Image src="/images/breath-right-sample.jpg" />

@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<title>Goji Blog</title>
 	<meta name="description" content="Blog of a Chinese expat's life in USA.">
-	<link rel="icon" href="%sveltekit.assets%/goji.png" />
+	<link rel="icon" href="%sveltekit.assets%/pen.svg" />
 	<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 	<meta name="viewport" content="width=device-width" /> %sveltekit.head%
 	<script defer src="/_vercel/insights/script.js"></script>
@@ -14,5 +14,45 @@
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">%sveltekit.body%</div>
 </body>
+<style>
+	/* Light-green Light scheme (Default) */
+	/* Can be forced with data-theme="light" */
+	[data-theme="light"],
+	:root:not([data-theme="dark"]) {
+		--primary: #7cb342;
+		--primary-hover: #689f38;
+		--primary-focus: rgba(124, 179, 66, 0.125);
+		--primary-inverse: #FFF;
+	}
+
+	/* Light-green Dark scheme (Auto) */
+	/* Automatically enabled if user has Dark mode enabled */
+	@media only screen and (prefers-color-scheme: dark) {
+		:root:not([data-theme]) {
+			--primary: #7cb342;
+			--primary-hover: #8bc34a;
+			--primary-focus: rgba(124, 179, 66, 0.25);
+			--primary-inverse: #FFF;
+		}
+	}
+
+	/* Light-green Dark scheme (Forced) */
+	/* Enabled if forced with data-theme="dark" */
+	[data-theme="dark"] {
+		--primary: #7cb342;
+		--primary-hover: #8bc34a;
+		--primary-focus: rgba(124, 179, 66, 0.25);
+		--primary-inverse: #FFF;
+	}
+
+	/* Light-green (Common styles) */
+	:root {
+		--form-element-active-border-color: var(--primary);
+		--form-element-focus-color: var(--primary-focus);
+		--switch-color: var(--primary-inverse);
+		--switch-checked-background-color: var(--primary);
+	}
+
+</style>
 
 </html>
